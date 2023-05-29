@@ -1,176 +1,278 @@
 import * as React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import { GatsbyImage} from "gatsby-plugin-image"
+import { Link } from "gatsby"
+import Slidehome from "../components/silders/slider-home"
+import Informationun from "../components/informations/information-un"
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+const IndexPage = ({ data }) => (
+  <Layout>
+    <Seo title="Accueil" />
+    <section className="  w-10/12 flex flex-col pt-4 md:pt-0 content-center  m-auto md:grid grid-cols-3 gap-x-20 mb-10 ">
+      <article className=" order-2 md:order-1 flex flex-col space-y-4 md:space-y-10 self-center    md:mb-0">
+        <h1 className=" text-2xl text-vert-interra md:text-5xl  font-black">
+          {data.datoCmsAccueil.titreHeader}
+        </h1>
+        <div
+          dangerouslySetInnerHTML={{ __html: data.datoCmsAccueil.texteHeader }}
+        ></div>
+      </article>
+      <figure className=" order-1 col-span-2 mb-5 md:mb-0 md-order-2 hidden md:block">
+        <Slidehome className="hidden md:block" />
+      </figure>
+      <figure className=" order-1 col-span-2 mb-5 md:mb-0 md-order-2 md:hidden">
+        <GatsbyImage
+          image={data.datoCmsAccueil.imagesHeader[1].gatsbyImageData}
+          alt={data.datoCmsAccueil.imagesHeader[1].alt}
+          className=""
+        />
+      </figure>
+    </section>
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+    <section className="bg-vert-interra ">
+      <div className="w-10/12  m-auto py-20 md:grid grid-cols-5  gap-x-20 ">
+        <GatsbyImage
+          image={data.datoCmsAccueil.imagePartieDeux.gatsbyImageData}
+          alt={data.datoCmsAccueil.imagePartieDeux.alt}
+          className="w-full col-span-2"
+        />
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+        <article className="col-span-3 md:w-10/12 m-auto">
+          <h2 className=" text-2xl md:text-4xl font-black text-white text-center my-5 md:mt-0 mb-5">
+            {data.datoCmsAccueil.titrePartieDeux}
+            <br />{" "}
+          </h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.datoCmsAccueil.textePartieDeux,
+            }}
+          ></div>
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+          <Link to="../decouvrir-interra">
+            <button
+              className=" mt-5 text-orange-interra bg-white font-black  p-1 px-2  
+          rounded hover:bg-orange-interra hover:text-white"
+            >
+              {" "}
+              Découvrir Interra{" "}
+            </button>
+          </Link>
+        </article>
+      </div>
+    </section>
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
+    <section className="md:bg-vert-interra pb-10 md:pb-0 ">
+      <div className="w-10/12 md:pb-20 mt-10 md:mt-0  m-auto">
+        <h2 className=" text-2xl md:text-4xl font-black text-vert-interra md:text-white   md:mb-10">
+          {" "}
+          L'histoire de ...
+        </h2>
+      </div>
+    </section>
+    <section className=" pb-5 md:pb-0 ">
+      <div className="w-10/12  m-auto">
+        <div className="md:grid grid-cols-3  gap-x-5 ">
+          <figure className=" md:relative  md:bottom-20 ">
+            <GatsbyImage
+              image={data.datoCmsAccueil.imageHistoireDe.gatsbyImageData}
+              alt={data.datoCmsAccueil.imageHistoireDe.alt}
+              className=""
+            />
+          </figure>
+          <article className="self-center flex flex-col justify-center">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.datoCmsHistoireDe.textePageDAccueil,
+              }}
+              className="px-2 my-5 md:my text-center"
+            ></div>
+            <Link
+              to={/histoires/ + data.datoCmsHistoireDe.url}
+              className="w-max m-auto"
+            >
+              <button className=" mt-5 text-white bg-vert-interra font-black  p-1 px-2  rounded hover:bg-white-interra hover:text-vert-interra hover:bg-white border hover:border-vert-interra">
+                {" "}
+                Découvrir son histoire{" "}
+              </button>
+            </Link>
+            <Link to="/histoires" className="w-max m-auto">
+              <button className=" mt-5 mb-10 md:mb-0 text-white bg-orange-interra font-black  p-1 px-2  rounded hover:bg-white-interra hover:text-orange-interra hover:bg-white border hover:border-orange-interra">
+                {" "}
+                Voir toutes les histoires{" "}
+              </button>
+            </Link>
+          </article>
+          <figure className=" md:relative  md:bottom-20 ">
+            <GatsbyImage
+              image={data.datoCmsHistoireDe.imageAccueil.gatsbyImageData}
+              alt={data.datoCmsHistoireDe.imageAccueil.alt}
+              className=""
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section className="w-10/12  m-auto">
+      <h2 className=" text-2xl md:text-4xl text-vert-interra font-black mt-10 mb-5  md:my-10">
+        Actus / Evenements
+      </h2>
+      <Informationun />
+    </section>
+    <section className="w-12/12 md:10/12  m-auto md:grid grid-cols-3 mt-10 md:mt-40 auto-cols-fr content-center">
+      <div className="bg-orange-interra flex flex-col md:grid grid-cols-2 col-span-2 py-16">
+        <article className="   flex flex-col place-self-center order-2 px-10 md:px-0 py-5 md:pt-0  ">
+          <h2 className=" text-2xl md:text-4xl md:pl-20 font-black text-white text-center  mb-5">
+            {" "}
+            {data.datoCmsAccueil.titreAgirAvecNous}
+          </h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.datoCmsAccueil.texteAgirAvecNous,
+            }}
+            className="text-white md:pl-20"
+          ></div>
+        </article>
+        <article className="place-self-center order-3 pb-5 md:pb-0 ">
+          <ul className="flex flex-col gap-2 justify-self-right items-center m-auto content-center self-center   ">
+                  <Link to="/agir-avec-nous/talent-interact">
+                    <li>
+                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
+                      {data.datoCmsMenu.sousMenuAgirAvecNousDevenirTalent}{" "}
+                      </button>
+                    </li>
+                  </Link>
+                  <Link to="/agir-avec-nous/former-duo">
+                    <li>
+                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
+                      {data.datoCmsMenu.sousMenuAgirAvecNousFormerUnduo}
+</button>
+                    </li>
+                  </Link>
+                  <Link to="/agir-avec-nous/interlab">
+                    <li>
+                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
 
-const links = [
+                      {data.datoCmsMenu.sousMenuAgirAvecNousDevenirCoah}
+                      </button>
+                    </li>
+                  </Link>
+                  <Link to="/agir-avec-nous/participer-formation">
+                    <li className="">
+                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
+                      {
+                        data.datoCmsMenu.sousMenuAgirAvecNousParticiperFormation
+                      }</button>
+                    </li>
+                  </Link>
+                  <Link to="/agir-avec-nous/devenir-volontaire">
+                    <li>
+                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
+                      {
+                        data.datoCmsMenu.sousMenuAgirAvecNousDevenirVolontaire
+                      }</button>
+                    </li>
+                  </Link>
+                  <Link to="/agir-avec-nous/#don">
+                    <li>
+                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
+                      {data.datoCmsMenu.sousMenuAgirAvecNousFaireDon}{" "}
+                      </button>
+                    </li>
+                  </Link>
+
+</ul>
+
+        </article>
+      </div>
+      <article>
+        <figure className=" md:relative mt-10 md:mt-0  m-auto md:bottom-20 right-20 mb-10 md:mb-0 w-10/12 md:w-12/12    ">
+          <GatsbyImage
+            image={data.datoCmsAccueil.imageAgirAvecNous.gatsbyImageData}
+            alt={data.datoCmsAccueil.imageAgirAvecNous.alt}
+            className="order-1"
+          />
+        </figure>
+        <Link to="../agenda" className="hidden">
+          <button className=" m-auto text-white text-center font-black bg-vert-interra font-black md:ml-10 p-1 px-2  rounded hover:bg-white-interra hover:text-vert-interra hover:bg-white border hover:border-vert-interra   mb-2 md:mb-0  ">
+            Nos prochains événements
+          </button>
+        </Link>
+      </article>
+    </section>
+  </Layout>
+)
+
+export const query = graphql`
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
-
-const IndexPage = () => {
-  return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
-}
+    datoCmsHistoireDe {
+      textePageDAccueil
+      url
+      imageAccueil {
+        gatsbyImageData
+      }
+    }
+    datoCmsAccueil {
+      titreTiquette
+      titreSAnceDInformation
+      titrePartieDeux
+      titreHeader
+      titreEntreprise
+      titreAiderMigrant
+      titreAgir
+      texteTiquette
+      texteSAnceDInformation
+      textePartieDeux
+      texteHeader
+      texteEntreprise
+      texteAiderMigrant
+      texteAgir
+      imageAgirAvecNous {
+        alt
+        gatsbyImageData(width: 400)
+      }
+      texteAgirAvecNous
+      titreAgirAvecNous
+      imagesHeader {
+        alt
+        gatsbyImageData
+      }
+      imageAgir {
+        alt
+        gatsbyImageData
+      }
+      imageAiderLesMigrants {
+        alt
+        gatsbyImageData
+      }
+      imageEtiquetteUn {
+        alt
+        gatsbyImageData
+      }
+      imageHistoireDe {
+        alt
+        gatsbyImageData
+      }
+      imagePartieDeux {
+        alt
+        gatsbyImageData(width: 500)
+      }
+      imageSAnceDInformation {
+        alt
+        gatsbyImageData
+      }
+    }
+    datoCmsMenu {
+      sousMenuAgirAvecNousDevenirCoah
+      sousMenuAgirAvecNousDevenirVolontaire
+      sousMenuAgirAvecNousDevenirTalent
+      sousMenuAgirAvecNousFaireDon
+      sousMenuAgirAvecNousFormerUnduo
+      sousMenuAgirAvecNousParticiperFormation
+    }
+  }
+`
 
 export default IndexPage
-
-export const Head = () => <title>Home Page</title>
