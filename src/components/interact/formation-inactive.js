@@ -15,7 +15,6 @@ const FormationInactive = () => {
             }
             nomDeLatelier
             organisateur
-            presentationAtelier{presentationAtelier}
            
           }
         }

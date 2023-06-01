@@ -15,7 +15,6 @@ const FormationActive = () => {
             }
             nomDeLatelier
             organisateur
-            presentationAtelier{presentationAtelier}
            
           }
         }
