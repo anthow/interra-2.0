@@ -21,10 +21,11 @@ const agenda = ({ data }) => (
                 <div className="bg-vert-interra text-center p-2 text-m text-white font-black">
                    {node.dateDeLvnement}
                 </div>
-              {/*}  <img src={node.atelier.image.url}
-                height="300"
-                  className=" mb-4 h-3"
-          /> {*/} 
+                <GatsbyImage
+                  image={node.atelier.image.gatsbyImageData}
+                  alt={node.atelier.image.alt}
+                  className=" mb-4"
+                />
                 <div className="flex flex-col gap-5 px-2 mb-4 content-center">
                   <div className=" text-white bg-vert-interra w-full flex flex-col m-auto  px-2 mb-2  text-center content-center text-lg">
                   <h2 className="">
@@ -81,8 +82,7 @@ export const query = graphql`
             nomDeLatelier
             organisateur
             image {
-              url
-              gatsbyImage (height:300, width:300)
+              gatsbyImageData (height:300, width:300)
             }
           }
         }
