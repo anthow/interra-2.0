@@ -29,7 +29,7 @@ const Nosprojets = ({ data }) => (
             }}
             className="paragraphe"
           ></div>
-                      <a href={data.datoCmsNosProjet.texteDeLaPage.urlPdf} rel="noreferrer" target="_blank" className="mt-10 text-center"> 
+                      <a href=" https://miniurl.be/r-4lo4" rel="noreferrer" target="_blank" className="mt-10 text-center"> 
         <button className=" w-max mt-5 text-white bg-vert-interra font-black  p-1 px-2  rounded hover:bg-white-interra hover:text-vert-interra hover:bg-white border hover:border-vert-interra"> Découvrir nos projets </button>
 
          </a>
