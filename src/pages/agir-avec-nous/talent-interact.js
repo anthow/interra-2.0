@@ -13,11 +13,11 @@ const devenirTalent = ({ data }) => (
       </h1>
 
       <article className="  mt-10 border p-5 rounded border-orange-interra  m-auto">
-        <form
-          action="https://formspree.io/f/xoqbboky"
-          method="post"
-          className="flex flex-col gap-5"
-        >
+      <form name="talent"
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"  className="flex flex-col gap-5">
+                          <input type="hidden" name="form-name" value="talent" />
           <div className="flex flex-col gap-5">
             <label className="text-orange-interra font-bold text-lg">Nom</label>
             <input
