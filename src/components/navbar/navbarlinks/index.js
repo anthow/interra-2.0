@@ -317,12 +317,7 @@ const NavbarLinks = () => (
                       {data.datoCmsMenu.sousMenuProjetFormation}{" "}
                     </li>
                   </Link>
-                  <Link to="/nos-projets">
-                    <li className="hover:opacity-80 text-bleu-interra text-center mb-2 text-sm md:text-lg">
-                      {" "}
-                      Nos projets{" "}
-                    </li>
-                  </Link>
+                
                 </ul>
               </div>
             </li>
