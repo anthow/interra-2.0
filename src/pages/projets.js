@@ -11,6 +11,7 @@ const projetsPage = ({data}) => (
     <Layout className="">
            <Seo title="Projets" />
 <article className="< m-auto flex flex-col">
+
 <article className="w-10/12 m-auto">
       <section className=" mt-10 flex flex-col space-y-20   m-auto">
         <div className="flex flex-col gap-10 md:grid grid-cols-2">
@@ -23,7 +24,7 @@ const projetsPage = ({data}) => (
           </figure>
           <div className="flex flex-col gap-5">
 
-            <h1 className="font-black text-4xl mb-10 md:mb-20 text-jaune-interra  bg-white text-center"> {data.datoCmsNosProjet.titreDeLaPage}</h1>
+            <h1 className="text-center font-black text-4xl mb-10 text-vert-interra  bg-white "> {data.datoCmsNosProjet.titreDeLaPage}</h1>
             
            <div
             dangerouslySetInnerHTML={{
