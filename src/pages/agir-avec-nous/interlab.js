@@ -24,6 +24,7 @@ const devenirMembre = ({ data }) => (
               name="nom"
               id="nom"
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -35,6 +36,7 @@ const devenirMembre = ({ data }) => (
               name="prenom"
               id="prenom"
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -57,6 +59,7 @@ const devenirMembre = ({ data }) => (
               name="mail"
               id="mail"
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+              required
             />
           </div>
 
@@ -70,6 +73,7 @@ const devenirMembre = ({ data }) => (
                 name="jesouhaite"
                 value="entrepreneur"
                 className="mr-2"
+                required
               />
               <label for="entrepreneur">
                 Je souhaite être accompagné par l'InterLab en vue de lancer un

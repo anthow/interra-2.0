@@ -21,26 +21,38 @@ const devenirBenevole = ({ data }) => (
 
     <div className="flex flex-col gap-2">
       <label name="Nom" htmlFor="Nom" className="text-orange-interra font-bold text-lg">Nom</label>
-      <input type="text" name="nom" id="nom" className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra " />  
+      <input type="text" name="nom" id="nom" 
+      className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+      required
+      />  
     </div>
     <div className="flex flex-col gap-2">
       <label name="prénom" htmlFor="prénom" className="text-orange-interra font-bold text-lg">Prénom</label>
-      <input type="text"  name="prenom" id="prenom" className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra " />  
+      <input type="text"  name="prenom" id="prenom" 
+      className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra " 
+      required/>  
     </div>
     <div className="flex flex-col gap-2">
       <label name="téléphone" htmlFor="téléphone" className="text-orange-interra font-bold text-lg">Téléphone</label>
-      <input type="text"  name="telephone" id="telephone" className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra " />  
+      <input type="text"  name="telephone" id="telephone" 
+      className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra " 
+      required
+      />  
     </div>
     <div className="flex flex-col  gap-2">
       <label name="mail" htmlFor="mail" className="text-orange-interra font-bold text-lg">Mail</label>
-      <input type="mail"  name="mail" id="mail"  className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "/>  
+      <input type="mail"  name="mail" id="mail"  
+      className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+      required
+      />  
+    
     </div>
   
 <fieldset className="flex flex-col  gap-2">
     <legend name="je suis" htmlFor="je suis " className=" mb-2 text-lg">Je suis:</legend>
 
     <div>
-      <input type="radio" id="primo-arrivante" name="jesuis" value="primo-arrivant(e)" className="mr-2"
+      <input type="radio" id="primo-arrivante" name="jesuis" value="primo-arrivant(e)" className="mr-2" required
              />
       <label name="primo-arrivant(e)" htmlFor="primo-arrivant(e)" for="primo-arrivant(e)">Une personne "nouvellement arrivée en Wallonie" (tu ne te sens pas toujours inclus.e dans la société, tu as besoin de mieux connaitre le français, tu as peu de réseau...)</label>
     </div>

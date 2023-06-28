@@ -21,10 +21,12 @@ const devenirBenevole = ({ data }) => (
           <div className="flex flex-col gap-5">
             <label className="text-orange-interra font-bold text-lg">Nom</label>
             <input
+            
               type="text"
               name="nom"
               id="nom"
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+              required
             />
           </div>
           <div className="flex flex-col gap-5">
@@ -34,6 +36,7 @@ const devenirBenevole = ({ data }) => (
               name="prenom"
               id="prenom"
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+              required
             />
           </div>
           <div className="flex flex-col gap-5">
@@ -52,6 +55,7 @@ const devenirBenevole = ({ data }) => (
               name="mail"
               id="mail"
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
+              required
             />
           </div>
           <input type="submit" value="Envoyer" className=" text-white bg-vert-interra font-black

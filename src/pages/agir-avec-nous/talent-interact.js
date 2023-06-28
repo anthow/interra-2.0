@@ -24,6 +24,7 @@ const devenirTalent = ({ data }) => (
               type="text"
               name="nom"
               id="nom"
+              required
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
             />
           </div>
@@ -35,6 +36,7 @@ const devenirTalent = ({ data }) => (
               type="text"
               name="prenom"
               id="prenom"
+              required
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
             />
           </div>
@@ -57,6 +59,7 @@ const devenirTalent = ({ data }) => (
               type="mail"
               name="mail"
               id="mail"
+              required
               className="border bg-gray-200 hover:bg-white focus:outline focus:outline-orange-interra "
             />
           </div>

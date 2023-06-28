@@ -28,7 +28,7 @@ const projetsPage = ({data}) => (
             
            <div
             dangerouslySetInnerHTML={{
-              __html: data.datoCmsNosProjet.texteDeLaPage,
+                 __html: data.datoCmsNosProjet.texteDeLaPage,
             }}
             className="paragraphe"
           ></div>
