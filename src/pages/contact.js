@@ -11,31 +11,31 @@ const Contact = ({ data }) => (
     <Seo title="Contact " />
     <div className="w-10/12 m-auto">
       <article className=" mt-10 flex flex-col space-y-20   m-auto">
-        <h1 className="font-black text-4xl  text-vert-interra  bg-white text-center"> Contact </h1>     
+        <h1 className="font-black text-4xl  text-vert-interra  bg-white text-center"> Contact </h1>
         <section className="  md:grid grid-cols-2 items-center m-auto mb-10  gap-x-20 gap-y-20" >
-{
+          {
 
-  data.allDatoCmsFondatrice.edges.map(({ node }) => {
-    return (
+            data.allDatoCmsFondatrice.edges.map(({ node }) => {
+              return (
 
-      <div className="flex flex-col ">
-
-
-          <GatsbyImage image={node.photo.gatsbyImageData} alt={node.photo.alt} className="m-auto" />
-
-        <div>
-          <h2 className="font-black text-lg mt-2 text-vert-interra  text-center"> {node.nomPrNom} </h2>
-          <h3 className="font-black text-m  text-orange-interra  text-center"> {node.fonction} </h3>
-          <p className="mt-2 text-center">{node.adresseMail} <br />{node.numRoDeTLPhone}</p>
-
-        </div>
-
-      </div>
-    )
-  })}
+                <div className="flex flex-col ">
 
 
-</section>
+                  <GatsbyImage image={node.photo.gatsbyImageData} alt={node.photo.alt} className="m-auto" />
+
+                  <div>
+                    <h2 className="font-black text-lg mt-2 text-vert-interra  text-center"> {node.nomPrNom} </h2>
+                    <h3 className="font-black text-m  text-orange-interra  text-center"> {node.fonction} </h3>
+                    <p className="mt-2 text-center">{node.adresseMail} <br />{node.numRoDeTLPhone}</p>
+
+                  </div>
+
+                </div>
+              )
+            })}
+
+
+        </section>
 
         <section className="  md:grid grid-cols-4 items-start  gap-x-10 gap-y-20" >
 
@@ -47,7 +47,7 @@ const Contact = ({ data }) => (
                 <div className="flex flex-col ">
 
 
-                    <GatsbyImage image={node.photo.gatsbyImageData} alt={node.photo.alt} className="m-auto" />
+                  <GatsbyImage image={node.photo.gatsbyImageData} alt={node.photo.alt} className="m-auto" />
 
                   <div>
                     <h2 className="font-black text-lg mt-2 text-vert-interra  text-center"> {node.nomPrNom} </h2>
@@ -68,8 +68,14 @@ const Contact = ({ data }) => (
         <h1 className="font-black text-3xl text-center text-orange-interra mb-10 ">Nous contacter </h1>
         <div className="mt-10 sm:mt-0">
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form   action="https://formspree.io/f/mnqwavrb"
- method="POST">
+
+
+            <form name="contact"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field" className="flex flex-col gap-5">
+              <input type="hidden" name="form-name" value="contact" />
+
               <div className="overflow-hidden ">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
@@ -142,10 +148,10 @@ const Contact = ({ data }) => (
             </form>
           </div>
         </div>
-        <iframe title="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1264.9645310757742!2d5.5797528516939625!3d50.647008579961884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0fb168a534c71%3A0x92e757af419bc5b!2sInterra!5e0!3m2!1sfr!2sbe!4v1643196795125!5m2!1sfr!2sbe" className="w-12/12" height="600"  allowfullscreen="" loading="lazy"></iframe>
+        <iframe title="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1264.9645310757742!2d5.5797528516939625!3d50.647008579961884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0fb168a534c71%3A0x92e757af419bc5b!2sInterra!5e0!3m2!1sfr!2sbe!4v1643196795125!5m2!1sfr!2sbe" className="w-12/12" height="600" allowfullscreen="" loading="lazy"></iframe>
 
       </article>
-      
+
     </div>
 
   </Layout>
