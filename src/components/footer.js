@@ -17,7 +17,7 @@ const Footer = () => (
     <Newsletter className="" />
     <div className="  flex flex-col gap-2">
     <h3 className=" text-white text-xl font-black ">Interra ASBL </h3>
-    <p>Rue des Brasseurs, 8 à 4000 Liège </p>
+    <p>boulevard d'avroy, 272 à 4000 Liège </p>
     <p>Num.Ent. : 0726.976.002</p>
     <p>RPM Liège</p>
     <p> N°Compte : BE65 1030 6350 8796</p>
