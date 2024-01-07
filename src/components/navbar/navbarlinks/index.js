@@ -321,12 +321,17 @@ const NavbarLinks = () => (
                 </ul>
               </div>
             </li>
-            <Link to="/inter-act/agenda/">
+            <a
+                href="https://www.facebook.com/InterraCult/events"
+                rel="noreferrer"
+                target="_blank"
+              >
+   
               <li className="hover:text-yellow-500 text-center mb-2 md:mb-0 text-sm md:text-lg ">
                 {" "}
                 {data.datoCmsMenu.menuPrincipalQuatreAgenda}{" "}
               </li>
-            </Link>{" "}
+            </a>{" "}
             <li className="text-center mb-2">
               <div class="dropdown inline-block relative">
                 <button class="text-sm md:text-lg  hover:text-yellow-500 text-center mb-2 md:mb-0   rounded inline-flex items-center">
