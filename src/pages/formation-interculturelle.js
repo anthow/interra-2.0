@@ -45,14 +45,14 @@ const FormationPage = ({ data }) => (
         ></div>
         <section className="md:grid grid-cols-2 mb-10 flex flex-col gap-x-10 gap-y-10 md:gap-y-20">
           <figure>
-            <GatsbyImage
+          {/*}  <GatsbyImage
               image={
                 data.datoCmsFormationInterculturelle.imageDeuxOrganiser
                   .gatsbyImageData
               }
               alt={data.datoCmsFormationInterculturelle.imageDeuxOrganiser.alt}
               className=""
-            />
+            />{*/}
           </figure>
           <div>
             <div
