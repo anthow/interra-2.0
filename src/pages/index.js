@@ -1,281 +1,269 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { GatsbyImage} from "gatsby-plugin-image"
-import { Link } from "gatsby"
-import Slidehome from "../components/silders/slider-home"
-import Informationun from "../components/informations/information-un"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <Seo title="Accueil" />
-    <section className="  w-10/12 flex flex-col pt-4 md:pt-0 content-center  m-auto md:grid grid-cols-3 gap-x-20 mb-10 ">
-      <article className=" order-2 md:order-1 flex flex-col space-y-4 md:space-y-10 self-center    md:mb-0">
-        <h1 className=" text-2xl text-vert-interra md:text-5xl  font-black">
-          {data.datoCmsAccueil.titreHeader}
+const Homepage = ({ data }) => (
+    <main className="max-w-4xl mx-auto px-8 py-12 text-center">
+        <Seo title="Interra a besoin de vous" />
+        
+        <h1 className="text-4xl font-bold mb-8 text-gray-800">
+            Interra a besoin de vous !
         </h1>
-        <div
-          dangerouslySetInnerHTML={{ __html: data.datoCmsAccueil.texteHeader }}
-        ></div>
-      </article>
-      <figure className=" order-1 col-span-2 mb-5 md:mb-0 md-order-2 hidden md:block">
-        <Slidehome className="hidden md:block" />
-      </figure>
-      <figure className=" order-1 col-span-2 mb-5 md:mb-0 md-order-2 md:hidden">
-        <GatsbyImage
-          image={data.datoCmsAccueil.imagesHeader[1].gatsbyImageData}
-          alt={data.datoCmsAccueil.imagesHeader[1].alt}
-          className=""
-        />
-      </figure>
-    </section>
-
-    <section className="bg-vert-interra ">
-      <div className="w-10/12  m-auto py-20 md:grid grid-cols-5  gap-x-20 ">
-        <GatsbyImage
-          image={data.datoCmsAccueil.imagePartieDeux.gatsbyImageData}
-          alt={data.datoCmsAccueil.imagePartieDeux.alt}
-          className="w-full col-span-2"
-        />
-
-        <article className="col-span-3 md:w-10/12 m-auto">
-          <h2 className=" text-2xl md:text-4xl font-black text-white text-center my-5 md:mt-0 mb-5">
-            {data.datoCmsAccueil.titrePartieDeux}
-            <br />{" "}
-          </h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: data.datoCmsAccueil.textePartieDeux,
-            }}
-          ></div>
-
-          <Link to="../decouvrir-interra">
-            <button
-              className=" mt-5 text-orange-interra bg-white font-black  p-1 px-2  
-          rounded hover:bg-orange-interra hover:text-white"
-            >
-              {" "}
-              Découvrir Interra{" "}
-            </button>
-          </Link>
-        </article>
-      </div>
-    </section>
-
-    <section className="md:bg-vert-interra pb-10 md:pb-0 ">
-      <div className="w-10/12 md:pb-20 mt-10 md:mt-0  m-auto">
-        <h2 className=" text-2xl md:text-4xl font-black text-vert-interra md:text-white   md:mb-10">
-          {" "}
-          L'histoire de ...
-        </h2>
-      </div>
-    </section>
-    <section className=" pb-5 md:pb-0 ">
-      <div className="w-10/12  m-auto">
-        <div className="md:grid grid-cols-3  gap-x-5 ">
-          <figure className=" md:relative  md:bottom-20 ">
-            <GatsbyImage
-              image={data.datoCmsAccueil.imageHistoireDe.gatsbyImageData}
-              alt={data.datoCmsAccueil.imageHistoireDe.alt}
-              className=""
+        
+        <p className="text-lg mb-8 leading-relaxed text-gray-700">
+            Interra est une association liégeoise créatrice de liens entre les personnes nouvellement arrivées à Liège et les personnes locales via la valorisation de leurs talents, passions et savoir-faire.
+        </p>
+        
+        <div className="mb-8">
+            <StaticImage
+                src="https://res.cloudinary.com/anthow/image/upload/v1749708622/2025_CAMPAGNE_SOLIDAIRE_-_Visuel_RS_3_a8ozip.png"
+                alt="campagne"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
             />
-          </figure>
-          <article className="self-center flex flex-col justify-center">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: data.datoCmsHistoireDe.textePageDAccueil,
-              }}
-              className="px-2 my-5 md:my text-center"
-            ></div>
-            <Link
-              to={/histoires/ + data.datoCmsHistoireDe.url}
-              className="w-max m-auto"
-            >
-              <button className=" mt-5 text-white bg-vert-interra font-black  p-1 px-2  rounded hover:bg-white-interra hover:text-vert-interra hover:bg-white border hover:border-vert-interra">
-                {" "}
-                Découvrir son histoire{" "}
-              </button>
-            </Link>
-            <Link to="/histoires" className="w-max m-auto">
-              <button className=" mt-5 mb-10 md:mb-0 text-white bg-orange-interra font-black  p-1 px-2  rounded hover:bg-white-interra hover:text-orange-interra hover:bg-white border hover:border-orange-interra">
-                {" "}
-                Voir toutes les histoires{" "}
-              </button>
-            </Link>
-          </article>
-          <figure className=" md:relative  md:bottom-20 ">
-            <GatsbyImage
-              image={data.datoCmsHistoireDe.imageAccueil.gatsbyImageData}
-              alt={data.datoCmsHistoireDe.imageAccueil.alt}
-              className=""
-            />
-          </figure>
         </div>
-      </div>
-    </section>
+        
+        <p className="text-lg mb-6 leading-relaxed text-gray-700">
+            Suite à la perte de nombreux subsides,
+            l'équipe est en chômage économique temporaire, et <span className="font-bold text-red-600">la structure dans son ensemble risque de disparaitre.</span>
+        </p>
 
+        <p className="text-xl mb-6 leading-relaxed">
+            <span className="font-bold text-green-600">On a besoin de vous ! Soutenez Interra en participant à notre campagne solidaire !</span>
+        </p>
+        
+        <p className="border-2 border-green-500 text-green-500 p-4 rounded-lg mb-12 font-medium">
+            En savoir plus sur Interra : www.interra-asbl.be
+        </p>
 
+        <h2 className="text-3xl font-bold mb-8 text-gray-800">
+            COMMENT NOUS SOUTENIR ?
+        </h2>
+        
+        <h3 className="text-2xl font-semibold mb-6 text-gray-700">
+            1. Faites un don
+        </h3>
+        
+        <p className="text-lg mb-6 leading-relaxed text-gray-700">
+            <span className="font-bold">Plus qu'une campagne de don, il s'agit ici d'une campagne de survie d'Interra</span>. Nous avons besoin de votre soutien pour maintenir nos activités quotidiennes et surtout démontrer <span className="font-bold">qu'Interra est essentielle pour Liège</span> et toutes les personnes qui bénéficient de nos activités.
+        </p>
+        
+        <p className="text-lg mb-4 font-semibold text-gray-800">
+            Comment faire un don ?
+        </p>
+        
+        <ul className="text-left max-w-3xl mx-auto mb-8 space-y-4">
+            <li className="text-lg leading-relaxed text-gray-700">
+                Sur le<span className="font-bold"> compte de Caritas</span> BE04 2400 8007 6231 avec la communication "PROJET 732 371"
+                <span className="italic text-gray-600"> (passer par Caritas nous permet d'offrir la déduction fiscale de 45%, à partir de 40€ de don)</span>
+            </li>
+            <li className="text-lg leading-relaxed text-gray-700">
+                Via le<span className="font-bold"> QR Code</span> ci-dessous, directement via<span className="font-bold"> appli bancaire</span>
+            </li>
+        </ul>
+        
+        <div className="mb-8">
+            <StaticImage
+                src="../images/QR2025.png"
+                alt="QR Code"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
+        
+        <div className="mb-8">
+            <StaticImage
+                src="../images/tableau2025.png"
+                alt="tableau"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
 
-    <section className="w-10/12  m-auto">
-      <h2 className=" text-2xl md:text-4xl text-vert-interra font-black mt-10 mb-5  md:my-10">
-        Actus / Evenements
-      </h2>
-      <Informationun />
-    </section>
-    <section className="w-12/12 md:10/12  m-auto md:grid grid-cols-3 mt-10 md:mt-40 auto-cols-fr content-center">
-      <div className="bg-orange-interra flex flex-col md:grid grid-cols-2 col-span-2 py-16">
-        <article className="   flex flex-col place-self-center order-2 px-10 md:px-0 py-5 md:pt-0  ">
-          <h2 className=" text-2xl md:text-4xl md:pl-20 font-black text-white text-center  mb-5">
-            {" "}
-            {data.datoCmsAccueil.titreAgirAvecNous}
-          </h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: data.datoCmsAccueil.texteAgirAvecNous,
-            }}
-            className="text-white md:pl-20"
-          ></div>
+        <p className="text-lg mb-8 leading-relaxed text-gray-700">
+            Les dons passent par Caritas, afin de <span className="font-bold"> permettre une déduction fiscale</span> (45% à partir de 40€ de don). Ce qui signifie que vous ne dépenserez que 55% de la somme donnée (exemples ci-dessous).
+        </p>
+        
+        <div className="mb-12">
+            <StaticImage
+                src="../images/3.png"
+                alt="exemples déduction fiscale"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
+
+        <h3 className="text-2xl font-semibold mb-6 text-gray-700">
+            2. Achetez votre "T-shirt Solidaire"
+        </h3>
+        
+        <p className="text-lg mb-4 leading-relaxed text-gray-700">
+            Achetez nos t-shirts solidaires pour porter nos valeurs directement sur vous !
+        </p>
+        
+        <p className="text-lg mb-6 leading-relaxed text-gray-700">
+            👕 Commandez via ce formulaire : <a href="https://forms.gle/8tqE5LjMuPt6B7UWA" target="_blank" className="text-blue-600 hover:text-blue-800 underline"> https://forms.gle/8tqE5LjMuPt6B7UWA</a>
+        </p>
+        
+        <div className="mb-12">
+            <StaticImage
+                src="../images/tshirt.png"
+                alt="t-shirt solidaire"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
+        
+        <h3 className="text-2xl font-semibold mb-6 text-gray-700">
+            3. Kit de soutien - Partagez la campagne autour de vous
+        </h3>
+        
+        <p className="text-lg mb-8 leading-relaxed text-gray-700">
+            <a href="https://drive.google.com/drive/folders/11ahK1uH7dFmsrdGrPqTpOUl9eUkY6Ws0?usp=sharing" target="_blank" className="text-blue-600 hover:text-blue-800 underline">Télécharger le Kit de soutien</a> ou copier/enregistrer directement les éléments ci-dessous.
+        </p>
+        
+        <h4 className="text-xl font-semibold mb-4 text-gray-800">
+            MESSAGE À DIFFUSER
+        </h4>
+        
+        <div className="bg-gray-50 p-6 rounded-lg mb-8 text-left max-w-3xl mx-auto">
+            <p className="font-bold mb-4 text-lg">
+                Plus qu'une campagne de dons, la campagne solidaire que lance Interra est une campagne de survie !
+            </p>
+            <p className="mb-4 leading-relaxed">
+                Depuis 2019, Interra crée des liens entre les personnes nouvellement arrivées à Liège et les personnes locales. Aujourd'hui, suite à la perte de nombreux subsides, l'équipe est en chômage économique, et l'avenir d'Interra est incertain.
+            </p>
+            <p className="mb-4 leading-relaxed">
+                Pourtant, cette association liégeoise et ses projets sont essentiels pour Liège et pour toutes les personnes qui bénéficient de leurs activités.
+            </p>
+            <p className="font-bold mb-4 text-lg">
+                Interra a besoin de vous !
+            </p>
+            <p className="leading-relaxed">
+                Pour en savoir plus sur la campagne solidaire et à quoi serviront concrètement vos dons, rendez-vous sur leur page de campagne : <a href="https://urls.fr/XsxZXa" target="_blank" className="text-blue-600 hover:text-blue-800 underline"> https://urls.fr/XsxZXa</a>
+            </p>
+        </div>
+        
+        <h4 className="text-xl font-semibold mb-4 text-gray-800">
+            VISUEL RÉSEAUX SOCIAUX
+        </h4>
+        
+        <div className="mb-8">
+            <StaticImage
+                src="https://res.cloudinary.com/anthow/image/upload/v1749708622/2025_CAMPAGNE_SOLIDAIRE_-_Newsletter_grignoux_2_cyhorl.png"
+                alt="campagne"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
+
+        <h4 className="text-xl font-semibold mb-4 text-gray-800">
+            VISUEL SIGNATURE MAIL
+        </h4>
+        
+        <div className="mb-12">
+            <StaticImage
+                src="../images/signature.png"
+                alt="visuel signature mail"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
+
+        <h2 className="text-3xl font-bold mb-8 text-gray-800">
+            *Interra, c'est…
+        </h2>
+        
+        <div className="space-y-8 text-left max-w-3xl mx-auto">
+            <article className="bg-white p-6 rounded-lg shadow-md border">
+                <p className="text-xl font-semibold mb-3 text-gray-800">
+                    *InterAct et *InterAct J
+                </p>
+                <p className="text-lg mb-3 leading-relaxed text-gray-700">
+                    <span className="font-bold">Des ateliers collectifs</span> entre personnes nouvellement arrivées et personnes locales.
+                </p>
+                <p className="text-lg leading-relaxed text-gray-700">
+                    En savoir plus : <a href="https://www.interra-asbl.be/inter-act/" target="_blank" className="text-blue-600 hover:text-blue-800 underline"> InterAct | Interra</a>
+                </p>
+            </article>
+            
+            <article className="bg-white p-6 rounded-lg shadow-md border">
+                <p className="text-xl font-semibold mb-3 text-gray-800">
+                    *L'InterLab, premier incubateur inclusif wallon
+                </p>
+                <p className="text-lg mb-3 leading-relaxed text-gray-700">
+                    Accompagnement à l'entrepreunariat sur mesure.
+                </p>
+                <p className="text-lg mb-3 leading-relaxed text-gray-700">
+                    <span className="font-bold">Empo'Women</span> : accompagnement adapté aux défis rencontrés par les femmes entrepreneuses.
+                </p>
+                <p className="text-lg leading-relaxed text-gray-700">
+                    En savoir plus : <a href="https://www.interra-asbl.be/interlab/" target="_blank" className="text-blue-600 hover:text-blue-800 underline"> Interlab | Interra</a>
+                </p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-md border">
+                <p className="text-xl font-semibold mb-3 text-gray-800">
+                    *Duo2Change
+                </p>
+                <p className="text-lg mb-3 leading-relaxed text-gray-700">
+                    <span className="font-bold">Rencontre en binôme</span> entre une personne nouvellement arrivée à Liège et une personne locale.
+                </p>
+                <p className="text-lg leading-relaxed text-gray-700">
+                    En savoir plus : <a href="https://www.interra-asbl.be/duo2change/" target="_blank" className="text-blue-600 hover:text-blue-800 underline"> Duo2Change | Interra</a>
+                </p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-md border">
+                <p className="text-xl font-semibold mb-3 text-gray-800">
+                    *Com'Together
+                </p>
+                <p className="text-lg mb-3 leading-relaxed text-gray-700">
+                    <span className="font-bold">Formation à la communication interculturelle</span> mélange d'apports théoriques et d'exercices pratiques.
+                </p>
+                <p className="text-lg leading-relaxed text-gray-700">
+                    En savoir plus : <a href="https://www.interra-asbl.be/formation-interculturelle/" target="_blank" className="text-blue-600 hover:text-blue-800 underline"> Formation interculturelle | Interra</a>
+                </p>
+            </article>
+            
+            <article className="bg-white p-6 rounded-lg shadow-md border">
+                <p className="text-xl font-semibold mb-3 text-gray-800">
+                    🎊 *L'InterraConnect
+                </p>
+                <p className="text-lg leading-relaxed text-gray-700">
+                    Chaque mercredi, l'équipe d'Interra organise<span className="font-bold"> un moment de rencontre</span> autour de jeux, d'animations et de thématiques spécifiques. L'objectif ? Que les membres de la communauté d'Interra, actuel·les ou futur·es, puissent <span className="font-bold">se rencontrer, discuter, partager</span> un bon moment ensemble !
+                </p>
+            </article>
+        </div>
+        
+        <div className="my-12">
+            <StaticImage
+                src="../images/2.jpg"
+                alt="infographie Interra"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg mb-8"
+            />
+        </div>
+
+        <div className="mb-12">
+            <StaticImage
+                src="../images/4.jpg"
+                alt="infographie Interra"
+                placeholder="blurred"
+                className="rounded-lg shadow-lg"
+            />
+        </div>
+        
+        <article className="bg-green-50 p-8 rounded-lg border-2 border-green-200 max-w-2xl mx-auto">
+            <p className="text-lg mb-4 leading-relaxed text-gray-700">
+                Une question ? Vous êtes une entreprise et souhaitez participer par du sponsoring ?
+            </p>
+            <p className="text-lg leading-relaxed text-gray-700">
+                Contactez Thomas Lenoir, Directeur d'INTERRA au <span className="font-bold">0474/95.86.13</span> ou par mail à l'adresse <a href="mailto:thomas@interra-asbl.be" className="text-blue-600 hover:text-blue-800 underline font-bold">thomas@interra-asbl.be</a>
+            </p>
         </article>
-        <article className="place-self-center order-3 pb-5 md:pb-0 ">
-          <ul className="flex flex-col gap-2 justify-self-right items-center m-auto content-center self-center   ">
-                  <Link to="/agir-avec-nous/talent-interact">
-                    <li>
-                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
-                      {data.datoCmsMenu.sousMenuAgirAvecNousDevenirTalent}{" "}
-                      </button>
-                    </li>
-                  </Link>
-                  <Link to="/agir-avec-nous/former-duo">
-                    <li>
-                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
-
-                      {data.datoCmsMenu.sousMenuAgirAvecNousFormerUnduo}
-</button>
-                    </li>
-                  </Link>
-                  <Link to="/agir-avec-nous/interlab">
-                    <li>
-                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
-
-                      {data.datoCmsMenu.sousMenuAgirAvecNousDevenirCoah}
-                      </button>
-                    </li>
-                  </Link>
-                  <Link to="/agir-avec-nous/participer-formation">
-                    <li className="">
-                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
-                      {
-                        data.datoCmsMenu.sousMenuAgirAvecNousParticiperFormation
-                      }</button>
-                    </li>
-                  </Link>
-                  <Link to="/agir-avec-nous/devenir-volontaire">
-                    <li>
-                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
-                      {
-                        data.datoCmsMenu.sousMenuAgirAvecNousDevenirVolontaire
-                      }</button>
-                    </li>
-                  </Link>
-                  <Link to="/agir-avec-nous/#don">
-                    <li>
-                    <button className="   text-white font-black border p-1 px-2 border-white rounded hover:bg-white hover:text-orange-interra">
-                      {data.datoCmsMenu.sousMenuAgirAvecNousFaireDon}{" "}
-                      </button>
-                    </li>
-                  </Link>
-
-</ul>
-
-        </article>
-      </div>
-      <article>
-        <figure className=" md:relative mt-10 md:mt-0  m-auto md:bottom-20 right-20 mb-10 md:mb-0 w-10/12 md:w-12/12    ">
-          <GatsbyImage
-            image={data.datoCmsAccueil.imageAgirAvecNous.gatsbyImageData}
-            alt={data.datoCmsAccueil.imageAgirAvecNous.alt}
-            className="order-1"
-          />
-        </figure>
-        <Link to="../agenda" className="hidden">
-          <button className=" m-auto text-white text-center font-black bg-vert-interra font-black md:ml-10 p-1 px-2  rounded hover:bg-white-interra hover:text-vert-interra hover:bg-white border hover:border-vert-interra   mb-2 md:mb-0  ">
-            Nos prochains événements
-          </button>
-        </Link>
-      </article>
-    </section>
-  </Layout>
+    </main>
 )
 
-export const query = graphql`
-  {
-    datoCmsHistoireDe {
-      textePageDAccueil
-      url
-      imageAccueil {
-        gatsbyImageData
-      }
-    }
-    datoCmsAccueil {
-      titreTiquette
-      titreSAnceDInformation
-      titrePartieDeux
-      titreHeader
-      titreEntreprise
-      titreAiderMigrant
-      titreAgir
-      texteTiquette
-      texteSAnceDInformation
-      textePartieDeux
-      texteHeader
-      texteEntreprise
-      texteAiderMigrant
-      texteAgir
-      imageAgirAvecNous {
-        alt
-        gatsbyImageData(width: 400)
-      }
-      texteAgirAvecNous
-      titreAgirAvecNous
-      imagesHeader {
-        alt
-        gatsbyImageData
-      }
-      imageAgir {
-        alt
-        gatsbyImageData
-      }
-      imageAiderLesMigrants {
-        alt
-        gatsbyImageData
-      }
-      imageEtiquetteUn {
-        alt
-        gatsbyImageData
-      }
-      imageHistoireDe {
-        alt
-        gatsbyImageData
-      }
-      imagePartieDeux {
-        alt
-        gatsbyImageData(width: 500)
-      }
-      imageSAnceDInformation {
-        alt
-        gatsbyImageData
-      }
-    }
-    datoCmsMenu {
-      sousMenuAgirAvecNousDevenirCoah
-      sousMenuAgirAvecNousDevenirVolontaire
-      sousMenuAgirAvecNousDevenirTalent
-      sousMenuAgirAvecNousFaireDon
-      sousMenuAgirAvecNousFormerUnduo
-      sousMenuAgirAvecNousParticiperFormation
-    }
-  }
-`
-
-export default IndexPage
+export default Homepage
