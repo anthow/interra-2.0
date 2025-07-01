@@ -56,6 +56,7 @@ const NavbarLinks = () => (
               />
               <p className="font-black">Prix du Mérite wallon 2022</p>
             </li>
+             {/*
             <li
               className="  text-white bg-bleu-interra font-black
             p-1 px-2 mb-2 md:mb-0  rounded hover:bg-white-interra text-center hover:text-bleu-interra 
@@ -70,6 +71,16 @@ const NavbarLinks = () => (
             hover:bg-white border hover:border-vert-interra"
               >
                 Faire un don
+              </li>
+            </Link>
+              */}
+                  <Link to="/campagne-2025">
+              <li
+                className=" text-white bg-vert-interra font-black
+            p-1 px-2 mb-2 md:mb-0  rounded hover:bg-white-interra text-center hover:text-vert-interra 
+            hover:bg-white border hover:border-vert-interra"
+              >
+              Soutenez-nous !
               </li>
             </Link>
             <Link to="/agir-avec-nous/#volontaire">
