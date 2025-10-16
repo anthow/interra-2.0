@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "npm run build:netlify"
+  command = "npm run build"
 
 # Désactiver complètement le traitement automatique des assets
 [build.processing]
@@ -23,9 +23,9 @@
   NODE_VERSION = "18.0.0"
   NPM_VERSION = "8.6.0"
 
-# Optimisations de build
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
+# Optimisations de build - Plugin Gatsby désactivé pour éviter les blocages
+# [[plugins]]
+#   package = "@netlify/plugin-gatsby"
 
 # Cache pour accélérer les builds suivants
 [[headers]]
@@ -64,3 +64,6 @@
   NODE_OPTIONS = "--max-old-space-size=4096"
   # Désactiver la minification HTML qui cause des blocages
   GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "true"
+  # Variables pour forcer Netlify à continuer
+  NETLIFY_BUILD_BASE = "/opt/build"
+  NETLIFY_BUILD_LIFECYCLE_TX = "true"
