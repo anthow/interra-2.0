@@ -16,8 +16,8 @@ exports.createPages = ({ graphql, actions }) => {
   // products, portfolio items, landing pages, etc.
   // Variables can be added as the second function parameter
   return graphql(`
-    query histoirePagesQuery ($limit: Int!) {
-        allDatoCmsHistoireDe(limit: $limit) {
+    query histoirePagesQuery {
+        allDatoCmsHistoireDe {
         edges {
           node {
             url
@@ -26,7 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `, { limit: 1000 }).then(result => {
+  `).then(result => {
     if (result.errors) {
       throw result.errors
     }

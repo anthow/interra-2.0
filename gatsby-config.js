@@ -37,7 +37,17 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 80,
+          breakpoints: [750, 1080, 1366, 1920],
+        },
+      },
+    },
     `gatsby-plugin-open-graph-images`,      
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -74,7 +84,7 @@ module.exports = {
         previewMode: false,
   
         // Disable automatic reloading of content when some change occurs on DatoCMS:
-        disableLiveReload: false,
+        disableLiveReload: true,
   
         // Custom API base URL (most don't need this)
         // apiUrl: 'https://site-api.datocms.com',

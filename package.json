@@ -11,6 +11,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
+    "build:fast": "GATSBY_CPU_COUNT=2 gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -36,7 +37,7 @@
     "gatsby-plugin-sitemap": "^6.10.0",
     "gatsby-plugin-styled-components": "^6.10.0",
     "gatsby-source-contentful": "^8.10.0",
-    "gatsby-source-datocms": "^5.1.2",
+    "gatsby-source-datocms": "^5.1.5",
     "gatsby-source-filesystem": "^5.10.0",
     "gatsby-transformer-remark": "^6.10.0",
     "gatsby-transformer-sharp": "^5.10.0",

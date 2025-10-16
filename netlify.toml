@@ -1,0 +1,56 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18.0.0"
+  NPM_VERSION = "8.6.0"
+
+# Optimisations de build
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Cache pour accélérer les builds suivants
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirections
+[[redirects]]
+  from = "/une-histoire-dans-l-assiette"
+  to = "/une-histoire-dans-l-assiette/"
+  status = 301
+
+# Variables d'environnement pour optimiser Gatsby
+[context.production.environment]
+  GATSBY_CPU_COUNT = "2"
+  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
+  GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "true"
