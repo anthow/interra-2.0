@@ -10,7 +10,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-minify`,
+    // Plugin minify désactivé pour éviter les blocages sur Netlify
+    // `gatsby-plugin-minify`,
     // Plugin Netlify désactivé pour éviter les timeouts
     // La configuration est maintenant dans netlify.toml
     // {

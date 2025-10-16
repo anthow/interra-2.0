@@ -1,10 +1,23 @@
 [build]
   publish = "public"
-  command = "npm run build"
+  command = "npm run build:netlify"
 
-# Désactiver le traitement automatique des assets pour éviter les timeouts
+# Désactiver complètement le traitement automatique des assets
 [build.processing]
   skip_processing = true
+
+# Désactiver la minification automatique qui cause des blocages
+[build.processing.html]
+  skip = true
+
+[build.processing.css]
+  skip = true
+
+[build.processing.js]
+  skip = true
+
+[build.processing.images]
+  skip = true
 
 [build.environment]
   NODE_VERSION = "18.0.0"
@@ -44,3 +57,10 @@
   GATSBY_EXPERIMENTAL_FAST_DEV = "true"
   GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND = "true"
   NETLIFY_USE_YARN = "false"
+  # Désactiver les fonctionnalités qui peuvent causer des blocages
+  GATSBY_DISABLE_QUERY_ON_DEMAND = "true"
+  GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE = "true"
+  # Variables pour éviter les timeouts
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  # Désactiver la minification HTML qui cause des blocages
+  GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "true"
