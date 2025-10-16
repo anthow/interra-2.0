@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { StaticQuery, graphql } from "gatsby";
 
 const NavbarLinks = () => (

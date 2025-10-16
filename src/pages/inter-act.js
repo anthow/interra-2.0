@@ -28,7 +28,7 @@ export const query = graphql`
       introduction
       titre
     }
-    allDatoCmsAtelier (sort: {fields: id, order: ASC}) {
+    allDatoCmsAtelier (sort: {id: ASC}) {
         edges {
           node {
             image {

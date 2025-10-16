@@ -11,7 +11,7 @@ const Informationun = () => (
   {
     allDatoCmsInformation(
     filter: {horsLigneEnLigne: {eq: true}}
-    sort: {fields: originalId, order: ASC}
+    sort: {originalId: ASC}
   ) {
     edges {
       node {

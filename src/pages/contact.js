@@ -161,7 +161,7 @@ const Contact = ({ data }) => (
 export const query = graphql`
 {
   allDatoCmsPersonneContact(
-    sort: {fields: meta___updatedAt, order: DESC}
+    sort: {meta: {updatedAt: DESC}}
     filter: {enLigneHorsLigne: {eq: true}}
   ) {
     edges {
@@ -178,7 +178,7 @@ export const query = graphql`
     }
   }
   allDatoCmsFondatrice(
-    sort: {fields: meta___firstPublishedAt, order: DESC}
+    sort: {meta: {firstPublishedAt: DESC}}
     filter: {enLigneHorsLigne: {eq: true}}
   ) {
     edges {
