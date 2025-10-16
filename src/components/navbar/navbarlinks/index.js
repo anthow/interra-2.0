@@ -407,6 +407,15 @@ const NavbarLinks = () => (
                 {data.datoCmsMenu.menuPrincipalSixContact}{" "}
               </Link>
             </li>
+            <Link to="/une-histoire-dans-l-assiette">
+              <li
+                className=" text-white bg-orange-interra font-black
+            p-1 px-2 mb-2 md:mb-0  rounded hover:bg-white-interra text-center hover:text-orange-interra 
+            hover:bg-white border hover:border-orange-interra text-sm md:text-lg whitespace-nowrap"
+              >
+                Une histoire dans l'assiette
+              </li>
+            </Link>
           </ul>
         </nav>
       </div>
