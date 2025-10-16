@@ -2,6 +2,10 @@
   publish = "public"
   command = "npm run build"
 
+# Désactiver le traitement automatique des assets pour éviter les timeouts
+[build.processing]
+  skip_processing = true
+
 [build.environment]
   NODE_VERSION = "18.0.0"
   NPM_VERSION = "8.6.0"
@@ -9,23 +13,6 @@
 # Optimisations de build
 [[plugins]]
   package = "@netlify/plugin-gatsby"
-
-[build.processing]
-  skip_processing = false
-
-[build.processing.css]
-  bundle = true
-  minify = true
-
-[build.processing.js]
-  bundle = true
-  minify = true
-
-[build.processing.html]
-  pretty_urls = true
-
-[build.processing.images]
-  compress = true
 
 # Cache pour accélérer les builds suivants
 [[headers]]
@@ -54,3 +41,6 @@
   GATSBY_CPU_COUNT = "2"
   GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
   GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "true"
+  GATSBY_EXPERIMENTAL_FAST_DEV = "true"
+  GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND = "true"
+  NETLIFY_USE_YARN = "false"

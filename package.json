@@ -11,7 +11,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "build:fast": "GATSBY_CPU_COUNT=2 gatsby build",
+    "build:fast": "GATSBY_CPU_COUNT=2 GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND=true gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
