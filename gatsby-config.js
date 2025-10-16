@@ -11,19 +11,21 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-minify`,
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {
-          "/*": [
-            "X-Frame-Options: DENY",
-            "X-XSS-Protection: 1; mode=block",
-          ]
-        },
-        mergeSecurityHeaders: true,
-        mergeCachingHeaders: true,
-      },
-    },
+    // Plugin Netlify désactivé pour éviter les timeouts
+    // La configuration est maintenant dans netlify.toml
+    // {
+    //   resolve: `gatsby-plugin-netlify`,
+    //   options: {
+    //     headers: {
+    //       "/*": [
+    //         "X-Frame-Options: DENY",
+    //         "X-XSS-Protection: 1; mode=block",
+    //       ]
+    //     },
+    //     mergeSecurityHeaders: true,
+    //     mergeCachingHeaders: true,
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-preload-fonts`,
     'gatsby-plugin-robots-txt',
