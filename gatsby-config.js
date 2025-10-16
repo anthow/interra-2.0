@@ -18,7 +18,6 @@ module.exports = {
         // Configuration minimale pour éviter les blocages
         mergeSecurityHeaders: false,
         mergeCachingHeaders: false,
-        mergeLinkHeaders: false,
       },
     },
     `gatsby-plugin-sitemap`,
