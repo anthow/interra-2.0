@@ -26,9 +26,6 @@
 # Plugin Gatsby réactivé avec configuration 2024
 [[plugins]]
   package = "@netlify/plugin-gatsby"
-  [plugins.inputs]
-    # Configuration optimisée pour 2024
-    disableGatsbyPluginNetlify = false
 
 # Cache pour accélérer les builds suivants
 [[headers]]
