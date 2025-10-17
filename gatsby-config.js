@@ -18,7 +18,6 @@ module.exports = {
         // Configuration 2024 recommandée
         mergeSecurityHeaders: true,
         mergeCachingHeaders: true,
-        mergeLinkHeaders: false,
         // Optimisations pour éviter les timeouts
         generateMatchPathRewrites: false,
       },
