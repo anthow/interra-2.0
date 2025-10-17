@@ -242,9 +242,29 @@ export const query = graphql`
         alt
         gatsbyImageData(width: 600, height: 400)
       }
+      imageAgir {
+        alt
+        gatsbyImageData(width: 400, height: 300)
+      }
+      imageAiderLesMigrants {
+        alt
+        gatsbyImageData(width: 400, height: 300)
+      }
+      imageEtiquetteUn {
+        alt
+        gatsbyImageData(width: 400, height: 300)
+      }
+      imageHistoireDe {
+        alt
+        gatsbyImageData(width: 400, height: 300)
+      }
       imagePartieDeux {
         alt
         gatsbyImageData(width: 500, height: 350)
+      }
+      imageSAnceDInformation {
+        alt
+        gatsbyImageData(width: 400, height: 300)
       }
     }
     datoCmsMenu {
