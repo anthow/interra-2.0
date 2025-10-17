@@ -214,7 +214,7 @@ export const query = graphql`
       textePageDAccueil
       url
       imageAccueil {
-        gatsbyImageData
+        gatsbyImageData(width: 400, height: 300)
       }
     }
     datoCmsAccueil {
@@ -234,37 +234,17 @@ export const query = graphql`
       texteAgir
       imageAgirAvecNous {
         alt
-        gatsbyImageData(width: 400)
+        gatsbyImageData(width: 400, height: 300)
       }
       texteAgirAvecNous
       titreAgirAvecNous
       imagesHeader {
         alt
-        gatsbyImageData
-      }
-      imageAgir {
-        alt
-        gatsbyImageData
-      }
-      imageAiderLesMigrants {
-        alt
-        gatsbyImageData
-      }
-      imageEtiquetteUn {
-        alt
-        gatsbyImageData
-      }
-      imageHistoireDe {
-        alt
-        gatsbyImageData
+        gatsbyImageData(width: 600, height: 400)
       }
       imagePartieDeux {
         alt
-        gatsbyImageData(width: 500)
-      }
-      imageSAnceDInformation {
-        alt
-        gatsbyImageData
+        gatsbyImageData(width: 500, height: 350)
       }
     }
     datoCmsMenu {
