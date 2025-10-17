@@ -1,6 +1,7 @@
 [build]
   publish = "public"
-  command = "npm run build"
+  command = "npm run build:fast"
+  timeout = "45"
 
 # Désactiver complètement le traitement automatique des assets
 [build.processing]
@@ -23,9 +24,9 @@
   NODE_VERSION = "20.11.0"
   NPM_VERSION = "10.2.4"
 
-# Plugin Gatsby avec configuration optimisée selon documentation officielle
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
+# Plugin Gatsby désactivé temporairement pour éviter les blocages
+# [[plugins]]
+#   package = "@netlify/plugin-gatsby"
 
 # Cache pour accélérer les builds suivants
 [[headers]]
@@ -49,14 +50,22 @@
   to = "/une-histoire-dans-l-assiette/"
   status = 301
 
-# Configuration optimisée selon documentation officielle Gatsby/Netlify 2024
+# Configuration optimisée pour éviter les timeouts
 [context.production.environment]
-  # Configuration Node.js selon documentation Netlify
-  NODE_OPTIONS = "--max-old-space-size=4096"
+  # Configuration Node.js optimisée
+  NODE_OPTIONS = "--max-old-space-size=8192"
   
-  # Optimisations Gatsby selon documentation officielle
-  GATSBY_CPU_COUNT = "2"
+  # Optimisations Gatsby agressives
+  GATSBY_CPU_COUNT = "4"
   GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "true"
+  GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND = "true"
   
-  # Configuration Netlify recommandée
+  # Désactiver les fonctionnalités problématiques
+  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
+  GATSBY_EXPERIMENTAL_FAST_DEV = "false"
+  GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE = "false"
+  GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "true"
+  
+  # Configuration Netlify
   NETLIFY_USE_YARN = "false"
+  NETLIFY_BUILD_BASE = "/opt/build"

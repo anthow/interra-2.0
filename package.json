@@ -15,6 +15,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
+    "build:fast": "GATSBY_CPU_COUNT=4 GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND=true GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION=true NODE_OPTIONS='--max-old-space-size=8192' gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
