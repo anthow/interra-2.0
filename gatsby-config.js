@@ -12,16 +12,8 @@ module.exports = {
     `gatsby-plugin-postcss`,
     // Plugin minify désactivé pour éviter les blocages sur Netlify
     // `gatsby-plugin-minify`,
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        // Configuration 2024 recommandée
-        mergeSecurityHeaders: true,
-        mergeCachingHeaders: true,
-        // Optimisations pour éviter les timeouts
-        generateMatchPathRewrites: false,
-      },
-    },
+    // Plugin Netlify désactivé selon documentation 2024
+    // Le plugin @netlify/plugin-gatsby gère maintenant tout automatiquement
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-preload-fonts`,
     'gatsby-plugin-robots-txt',

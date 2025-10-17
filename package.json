@@ -15,8 +15,6 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "build:fast": "GATSBY_CPU_COUNT=2 GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND=true gatsby build",
-    "build:netlify": "GATSBY_CPU_COUNT=2 GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE=true GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION=true NODE_OPTIONS='--max-old-space-size=4096' gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },

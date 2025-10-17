@@ -23,7 +23,7 @@
   NODE_VERSION = "20.11.0"
   NPM_VERSION = "10.2.4"
 
-# Plugin Gatsby réactivé avec configuration 2024
+# Plugin Gatsby avec configuration optimisée selon documentation officielle
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
@@ -49,22 +49,14 @@
   to = "/une-histoire-dans-l-assiette/"
   status = 301
 
-# Variables d'environnement optimisées selon documentation Netlify 2024
+# Configuration optimisée selon documentation officielle Gatsby/Netlify 2024
 [context.production.environment]
-  # Configuration Node.js optimisée
+  # Configuration Node.js selon documentation Netlify
   NODE_OPTIONS = "--max-old-space-size=4096"
   
-  # Optimisations Gatsby recommandées 2024
+  # Optimisations Gatsby selon documentation officielle
   GATSBY_CPU_COUNT = "2"
   GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "true"
-  GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND = "true"
   
-  # Désactiver les fonctionnalités expérimentales problématiques
-  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
-  GATSBY_EXPERIMENTAL_FAST_DEV = "false"
-  GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE = "false"
-  GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "false"
-  
-  # Configuration Netlify 2024
+  # Configuration Netlify recommandée
   NETLIFY_USE_YARN = "false"
-  NETLIFY_BUILD_BASE = "/opt/build"
