@@ -1,7 +1,6 @@
 [build]
   publish = "public"
   command = "npm run build"
-  timeout = "30"
 
 # Désactiver complètement le traitement automatique des assets
 [build.processing]
@@ -24,9 +23,12 @@
   NODE_VERSION = "20.11.0"
   NPM_VERSION = "10.2.4"
 
-# Optimisations de build - Plugin Gatsby désactivé pour éviter les blocages
-# [[plugins]]
-#   package = "@netlify/plugin-gatsby"
+# Plugin Gatsby réactivé avec configuration 2024
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+  [plugins.inputs]
+    # Configuration optimisée pour 2024
+    disableGatsbyPluginNetlify = false
 
 # Cache pour accélérer les builds suivants
 [[headers]]
@@ -50,24 +52,22 @@
   to = "/une-histoire-dans-l-assiette/"
   status = 301
 
-# Variables d'environnement pour optimiser Gatsby
+# Variables d'environnement optimisées selon documentation Netlify 2024
 [context.production.environment]
-  GATSBY_CPU_COUNT = "4"
-  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
+  # Configuration Node.js optimisée
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  
+  # Optimisations Gatsby recommandées 2024
+  GATSBY_CPU_COUNT = "2"
   GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "true"
-  GATSBY_EXPERIMENTAL_FAST_DEV = "true"
   GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND = "true"
-  NETLIFY_USE_YARN = "false"
-  # Optimisations pour éviter les timeouts
-  GATSBY_DISABLE_QUERY_ON_DEMAND = "false"
+  
+  # Désactiver les fonctionnalités expérimentales problématiques
+  GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
+  GATSBY_EXPERIMENTAL_FAST_DEV = "false"
   GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE = "false"
-  # Variables pour éviter les timeouts
-  NODE_OPTIONS = "--max-old-space-size=8192"
-  # Désactiver la minification HTML qui cause des blocages
-  GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "true"
-  # Variables pour forcer Netlify à continuer
+  GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "false"
+  
+  # Configuration Netlify 2024
+  NETLIFY_USE_YARN = "false"
   NETLIFY_BUILD_BASE = "/opt/build"
-  NETLIFY_BUILD_LIFECYCLE_TX = "true"
-  # Optimisations supplémentaires
-  GATSBY_EXPERIMENTAL_FAST_REFRESH = "true"
-  GATSBY_EXPERIMENTAL_DEV_SSR = "false"
