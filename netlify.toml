@@ -1,6 +1,7 @@
 [build]
   publish = "public"
   command = "npm run build"
+  timeout = "30"
 
 # Désactiver complètement le traitement automatique des assets
 [build.processing]
@@ -51,19 +52,22 @@
 
 # Variables d'environnement pour optimiser Gatsby
 [context.production.environment]
-  GATSBY_CPU_COUNT = "2"
+  GATSBY_CPU_COUNT = "4"
   GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES = "false"
   GATSBY_EXPERIMENTAL_PARALLEL_QUERY_RUNNING = "true"
   GATSBY_EXPERIMENTAL_FAST_DEV = "true"
   GATSBY_EXPERIMENTAL_QUERY_ON_DEMAND = "true"
   NETLIFY_USE_YARN = "false"
-  # Désactiver les fonctionnalités qui peuvent causer des blocages
-  GATSBY_DISABLE_QUERY_ON_DEMAND = "true"
-  GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE = "true"
+  # Optimisations pour éviter les timeouts
+  GATSBY_DISABLE_QUERY_ON_DEMAND = "false"
+  GATSBY_EXPERIMENTAL_DISABLE_WEBPACK_CACHE = "false"
   # Variables pour éviter les timeouts
-  NODE_OPTIONS = "--max-old-space-size=4096"
+  NODE_OPTIONS = "--max-old-space-size=8192"
   # Désactiver la minification HTML qui cause des blocages
   GATSBY_EXPERIMENTAL_DISABLE_HTML_MINIFICATION = "true"
   # Variables pour forcer Netlify à continuer
   NETLIFY_BUILD_BASE = "/opt/build"
   NETLIFY_BUILD_LIFECYCLE_TX = "true"
+  # Optimisations supplémentaires
+  GATSBY_EXPERIMENTAL_FAST_REFRESH = "true"
+  GATSBY_EXPERIMENTAL_DEV_SSR = "false"
